@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className=" overflow-hidden flex flex-col justify-center items-center h-[100vh] gap-14">
-      <div className="px-2 py-2 text-center text-2xl ">
-        {/* <p className="font-bold"></p> */}
+    <div className="overflow-hidden flex flex-col justify-center items-center h-[100vh] gap-14">
+      <div className="px-2 py-2 text-center text-2xl text-[#0c090a]">
         <p>
           <b>Find the Killer</b> è un gioco in cui a ogni giocatore viene
           assegnato un ruolo: assassino o innocente. Per ogni partita, c'è un
@@ -15,12 +15,14 @@ function Home() {
           dei giocatori deve averlo indicato. Buon divertimento!
         </p>
       </div>
-      <button
-        type="button"
-        className="px-12 py-2 shadow-lg shadow-gray-500/50 bg-black text-white rounded-md text-3xl cursor-pointer active:scale-[.97]"
-      >
-        Iniziare
-      </button>
+      <Link to={"/players"}>
+        <button
+          type="button"
+          className="px-12 py-2 shadow-lg shadow-gray-500/50 bg-black text-white rounded-md text-3xl cursor-pointer active:scale-[.97]"
+        >
+          Iniziare
+        </button>
+      </Link>
     </div>
   );
 }
