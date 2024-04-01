@@ -3,6 +3,7 @@ import PlayerNameInput from "../components/PlayerNameInput";
 import { Link } from "react-router-dom";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
+import trashIcon from "../assets/trash.png";
 
 function Players() {
   const [players, setPlayers] = useState([]);
@@ -46,7 +47,7 @@ function Players() {
   };
 
   return (
-    <form className="overflow-hidden flex flex-col justify-center items-center h-[100vh] w-[100vw]">
+    <form className="flex flex-col justify-center items-center">
       <div className="overflow-y-auto flex flex-col justify-start items-center gap-4 py-8 h-[80vh] w-[100vw] text-[#0c090a]">
         {players.map((player) => (
           <div className="flex justify-around items-center" key={player.id}>
@@ -59,7 +60,7 @@ function Players() {
               className="border-none bg-transparent"
               onClick={() => removePlayer(player.id)}
             >
-              <img className="w-6" src="./public/trash.png" alt="trash icon" />
+              <img className="w-6" src={trashIcon} alt="trash icon" />
             </button>
           </div>
         ))}
