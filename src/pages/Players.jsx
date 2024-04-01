@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PlayerNameInput from "../components/PlayerNameInput";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 
@@ -76,7 +76,7 @@ function Players() {
           Aggiungi giocatore
         </button>
       </div>
-      <div className="h-[20vh] w-[100vw] flex justify-center items-center shadow-2xl shadow-gray-900">
+      <div className="h-[20vh] w-[100vw] flex flex-col justify-center items-center gap-4 shadow-2xl shadow-gray-900">
         <button
           type="button"
           className="w-96 h-16 px-2 py-2 shadow-lg shadow-gray-500/50 bg-[#0c090a] text-white rounded-md text-2xl cursor-pointer active:scale-[.97]"
@@ -84,6 +84,14 @@ function Players() {
         >
           Iniziare Partita
         </button>
+        <Link to={"/home"}>
+          <button
+            type="button"
+            className="w-96 h-16 px-2 py-2 shadow-lg shadow-gray-500/50 border-2 border-[#0c090a] bg-white text-[#0c090a] rounded-md text-2xl cursor-pointer active:scale-[.97]"
+          >
+            Torna indietro
+          </button>
+        </Link>
 
         <Dialog
           visible={showPopupForPlayerNames}
