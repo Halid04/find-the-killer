@@ -47,7 +47,7 @@ function Players() {
   };
 
   return (
-    <form className="flex flex-col justify-center items-center">
+    <form className="flex flex-col justify-center items-center h-[100dvh]">
       <div className="overflow-y-auto flex flex-col justify-start items-center gap-4 py-8 h-[80vh] w-[100vw] text-[#0c090a]">
         {players.map((player) => (
           <div className="flex justify-around items-center" key={player.id}>

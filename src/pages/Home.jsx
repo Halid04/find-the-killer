@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="overflow-hidden flex flex-col justify-center items-center h-[100vh] gap-6">
+    /* background-color: #1a1a1a; */
+    <div className="overflow-hidden flex flex-col justify-center items-center h-[100dvh] gap-6">
       <div className="px-2 py-2 text-center sm:text-2xl text-lg text-[#0c090a]">
         <p>
           <b>Find the Killer</b> è un gioco in cui a ogni giocatore viene
