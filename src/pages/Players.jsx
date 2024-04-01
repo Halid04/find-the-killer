@@ -59,18 +59,14 @@ function Players() {
               className="border-none bg-transparent"
               onClick={() => removePlayer(player.id)}
             >
-              <img
-                className="w-6"
-                src="./src/images/trash.png"
-                alt="trash icon"
-              />
+              <img className="w-6" src="./public/trash.png" alt="trash icon" />
             </button>
           </div>
         ))}
 
         <button
           type="button"
-          className="w-80 px-2 py-2 shadow-lg shadow-gray-500/50 border-2 border-[#0c090a] bg-white text-[#0c090a] rounded-md text-lg cursor-pointer active:scale-[.97]"
+          className="w-52 sm:w-80 h-10 px-2 py-2 flex justify-center items-center shadow-lg shadow-gray-500/50 border-2 border-[#0c090a] bg-white text-[#0c090a] rounded-md text-lg cursor-pointer active:scale-[.97]"
           onClick={addPlayer}
         >
           Aggiungi giocatore
@@ -79,7 +75,7 @@ function Players() {
       <div className="h-[20vh] w-[100vw] flex flex-col justify-center items-center gap-4 shadow-2xl shadow-gray-900">
         <button
           type="button"
-          className="w-96 h-16 px-2 py-2 shadow-lg shadow-gray-500/50 bg-[#0c090a] text-white rounded-md text-2xl cursor-pointer active:scale-[.97]"
+          className="w-[80vw] h-10 sm:w-96 sm:h-16 px-2 py-2 shadow-lg shadow-gray-500/50 bg-[#0c090a] text-white rounded-md text-lg sm:text-2xl cursor-pointer flex justify-center items-center active:scale-[.97]"
           onClick={startGame}
         >
           Iniziare Partita
@@ -87,7 +83,7 @@ function Players() {
         <Link to={"/home"}>
           <button
             type="button"
-            className="w-96 h-16 px-2 py-2 shadow-lg shadow-gray-500/50 border-2 border-[#0c090a] bg-white text-[#0c090a] rounded-md text-2xl cursor-pointer active:scale-[.97]"
+            className="w-[80vw] h-10 sm:w-96 sm:h-16 px-2 py-2 shadow-lg shadow-gray-500/50 border-2 border-[#0c090a] bg-white text-[#0c090a] rounded-md text-lg sm:text-2xl cursor-pointer flex justify-center items-center active:scale-[.97]"
           >
             Torna indietro
           </button>

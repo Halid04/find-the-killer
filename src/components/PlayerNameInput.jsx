@@ -1,6 +1,6 @@
 function PlayerNameInput({ value, onChange }) {
   return (
-    <div className="relative h-10 w-80 min-w-[200px]">
+    <div className="relative h-10 w-52 sm:w-80 min-w-[200px]">
       <input
         required
         className="peer h-full w-full rounded-md border border-gray-600 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-[#0c090a] outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-600 placeholder-shown:border-t-gray-600 focus:border-2 focus:border-[#0c090a] focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-600"
