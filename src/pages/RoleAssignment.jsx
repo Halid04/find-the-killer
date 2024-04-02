@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import innocentPlayer from "../assets/innocentPlayer.png";
+import KillerPlayer from "../assets/KillerPlayer.png";
 
 function RoleAssignment() {
   const location = useLocation();
@@ -40,16 +42,45 @@ function RoleAssignment() {
 
   return (
     <div
-      className="flex flex-col justify-center items-center h-[100dvh] text-black text-3xl font-bold sm:text-5"
+      className="flex flex-col justify-center items-center h-[100dvh] text-[#0c090a] text-3xl"
       onClick={handlePlayerClick}
     >
       {!gameStarted &&
         (showRole ? (
-          <div>Ruolo: {playerRoles[currentPlayerIndex].role}</div>
+          <div className="flex flex-col justify-between items-center h-[100dvh]">
+            <div className="h-[20vh] sm:h-[10vh] font-bold mt-[5rem] sm:mt-[10rem] sm:text-[4rem]">
+              Ruolo: {playerRoles[currentPlayerIndex].role}
+            </div>
+            {playerRoles[currentPlayerIndex].role == "Assassino" ? (
+              <img
+                className="w-80 sm:w-96"
+                src={KillerPlayer}
+                alt="Killer player"
+              />
+            ) : (
+              <img
+                className="w-80 sm:w-96"
+                src={innocentPlayer}
+                alt="Innocent player"
+              />
+            )}
+            <div className="h-[3vh] text-base sm:text-3xl mb-[2rem] sm:mb-[5rem] animate-bounce ">
+              <p>Tocca per passare al prossimo giocatore</p>
+            </div>
+          </div>
         ) : (
-          <div>Giocatore: {players[currentPlayerIndex].name}</div>
+          <div className="flex flex-col justify-between items-center h-[100dvh]">
+            <div className="font-bold h-[97vh] flex flex-col justify-center items-center sm:text-[4rem]">
+              Giocatore: {players[currentPlayerIndex].name}
+            </div>
+            <div className="h-[3vh] text-base sm:text-3xl mb-[2rem] sm:mb-[5rem] animate-bounce ">
+              <p>Tocca per vedere il ruolo</p>
+            </div>
+          </div>
         ))}
-      {showStartMessage && <div>Inizio partita</div>}
+      {showStartMessage && (
+        <div className="font-bold sm:text-[4rem]">Inizio partita</div>
+      )}
     </div>
   );
 }
