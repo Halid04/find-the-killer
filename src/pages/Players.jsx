@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PlayerNameInput from "../components/PlayerNameInput";
-import { Link } from "react-router-dom";
-import { Button } from "primereact/button";
+import { Link, useNavigate } from "react-router-dom";
 import { Dialog } from "primereact/dialog";
 import trashIcon from "../assets/trash.png";
 
@@ -10,6 +9,7 @@ function Players() {
   const [showPopupForPlayerNames, setShowPopupForPlayerNames] = useState(false);
   const [showPopupForPlayerMinNumber, setShowPopupForPlayerMinNumber] =
     useState(false);
+  const navigate = useNavigate(); // Hook per gestire la history dei navigazione
 
   const addPlayer = () => {
     const playerId = Date.now();
@@ -29,10 +29,9 @@ function Players() {
     } else if (hasEmptyName) {
       setShowPopupForPlayerNames(true);
     } else {
-      console.log(
-        "Nomi dei giocatori:",
-        players.map((player) => player.name)
-      );
+      console.log(players);
+      // Se tutti i controlli passano, possiamo passare alla pagina RoleAssignement
+      navigate("/role-assignment", { state: { players } });
     }
   };
 
