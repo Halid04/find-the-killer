@@ -9,7 +9,7 @@ function Players() {
   const [showPopupForPlayerNames, setShowPopupForPlayerNames] = useState(false);
   const [showPopupForPlayerMinNumber, setShowPopupForPlayerMinNumber] =
     useState(false);
-  const navigate = useNavigate(); // Hook per gestire la history dei navigazione
+  const navigate = useNavigate();
 
   const addPlayer = () => {
     const playerId = Date.now();
