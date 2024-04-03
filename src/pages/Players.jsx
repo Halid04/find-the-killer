@@ -29,8 +29,6 @@ function Players() {
     } else if (hasEmptyName) {
       setShowPopupForPlayerNames(true);
     } else {
-      console.log(players);
-      // Se tutti i controlli passano, possiamo passare alla pagina RoleAssignement
       navigate("/role-assignment", { state: { players } });
     }
   };
@@ -49,7 +47,10 @@ function Players() {
     <form className="flex flex-col justify-center items-center h-[100dvh]">
       <div className="overflow-y-auto flex flex-col justify-start items-center gap-4 py-8 h-[80vh] w-[100vw] text-[#0c090a]">
         {players.map((player) => (
-          <div className="flex justify-around items-center" key={player.id}>
+          <div
+            className="flex justify-around items-center gap-4"
+            key={player.id}
+          >
             <PlayerNameInput
               value={player.name}
               onChange={(e) => updatePlayerName(player.id, e.target.value)}

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import innocentPlayer from "../assets/innocentPlayer.png";
 import KillerPlayer from "../assets/KillerPlayer.png";
 
 function RoleAssignment() {
   const location = useLocation();
   const { players } = location.state;
-
+  const navigate = useNavigate();
   const [playerRoles, setPlayerRoles] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function RoleAssignment() {
       role: index === randomIndex ? "Assassino" : "Innocente",
     }));
     setPlayerRoles(updatedRoles);
-  }, []); // Esegue l'effetto solo una volta all'inizio
+  }, []);
 
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const [showRole, setShowRole] = useState(false);
@@ -35,9 +35,13 @@ function RoleAssignment() {
       } else {
         setGameStarted(true);
         setShowStartMessage(true);
-        setShowRole(false); // Nascondi il ruolo quando appare la frase "Inizio partita"
+        setShowRole(false);
       }
     }
+  };
+
+  const goToVotesPage = () => {
+    navigate("/votes", { state: { playerRoles, players } });
   };
 
   return (
@@ -79,7 +83,16 @@ function RoleAssignment() {
           </div>
         ))}
       {showStartMessage && (
-        <div className="font-bold sm:text-[4rem]">Inizio partita</div>
+        <div className="flex flex-col justify-center items-center h-[100dvh] gap-5">
+          <div className="font-bold sm:text-[4rem]">Partita iniziata!</div>
+          <button
+            type="button"
+            className="h-10 sm:w-96 sm:h-16 px-3 py-2 shadow-lg shadow-gray-500/50 bg-[#0c090a] text-white rounded-md text-lg sm:text-2xl cursor-pointer flex justify-center items-center active:scale-[.97]"
+            onClick={goToVotesPage}
+          >
+            Inserire le votazioni
+          </button>
+        </div>
       )}
     </div>
   );

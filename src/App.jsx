@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Players from "./pages/Players";
 import RoleAssignment from "./pages/RoleAssignment";
+import Votes from "./pages/Votes";
 import "./App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/home" element={<Home />} />
         <Route exact path="/players" element={<Players />} />
         <Route exact path="/role-assignment" element={<RoleAssignment />} />
+        <Route exact path="/votes" element={<Votes />} />
       </Routes>
     </HashRouter>
   );
